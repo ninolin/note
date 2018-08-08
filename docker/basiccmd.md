@@ -8,18 +8,17 @@ brew cask install docker
 
 ## Find docker image, pull, and remove run and list 
 
-We can find docker on open registry or use 'docker search [software]'. Docker hub is the official open registry(https://hub.docker.com)
-
+We can find docker on open registry like DockerHub(https://hub.docker.com) or use cli
 ```
-docker search node
+docker search [keyword]
 ```
 
 use docker pull to download docker image and use : to specific version
 
 ```
-docker pull node  //lastest version
+docker pull node                //lastest version
 docker pull node:8.11.3-stretch //specific version
-docker images //list all docker image
+docker images                   //list all docker image
 
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 node                latest              0e2811757f93        5 days ago          673MB
@@ -33,17 +32,17 @@ docker rmi [image id]
 
 use dockerfile to create new image
 ```
-docker build -t [new image name] . //
+docker build -t [new image name] .
 ```
 
 ## Docker life cycle
 
-use docker run (-p is setting port[8080 is external port][80 is internal port]; -d is detach mode: run in backgroud)
+run container from image
 ```
-docker run -p 8080:80 -d nginx
+docker run -p 8080:80 -d nginx  //docker run -p [external port]:[internal port] -d [image name] (-d is run in backgroud)
 ```
 
-use docker ps to list docker  (-a is list all docker history)
+list container  (-a is list all docker include history)
 ```
 docker ps
 
