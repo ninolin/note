@@ -30,11 +30,6 @@ remove docker image
 docker rmi [image id]
 ```
 
-use dockerfile to create new image
-```
-docker build -t [new image name] .
-```
-
 ## Docker life cycle
 
 run container from image
