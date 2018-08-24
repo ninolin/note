@@ -1,181 +1,139 @@
-# Install private blockchain on Ubuntu 16.04 with Parity
+# Install private blockchain on Ubuntu 16.04 with Geth
 
-## Install Parity
+## Install Geth
 
 ```
+sudo apt-get install software-properties-common
+sudo add-apt-repository -y ppa:ethereum/ethereum
 sudo apt-get update
-sudo apt-get install openssl libtool autoconf automake uuid-dev build-essential gcc g++ python-software-properties unzip make git libcap2-bin -y
-bash <(curl https://get.parity.io -kL)
+sudo apt-get install ethereum
 ```
 
-## Create config.toml
+## Build up blockchain
 
-在 HOME 目錄下建立 ~/.local/share/io.parity.ethereum 當作 chain 的目錄
-在 chain 目錄下建立設定檔 config.toml
+We have to create a first block for our private blockchain, it's called genesis block. Genesis block is a json file and describe blockchain setting.  
+
+We create a folder named **private-geth** on home folder first.
 
 ```
-[parity]
-chain = "/home/ubuntu/.local/share/io.parity.ethereum/genesis.json" 
-base_path = "$HOME/.local/share/io.parity.ethereum"              
-db_path = "$HOME/.local/share/io.parity.ethereum/chains"         
-keys_path = "$HOME/.local/share/io.parity.ethereum/keys"
-
-[network]
-port = 30303
-
-[rpc]
-disable = false
-port = 8545
-interface = "0.0.0.0"
-cors = ["all"]
-apis = ["web3", "eth", "pubsub", "net", "parity", "parity_pubsub", "traces", "rpc", "shh", "shh_pubsub"]
-hosts = ["none"]
-
-[websockets]
-disable = false
-port = 8546
-interface = "0.0.0.0"
-origins = ["none"]
-apis = ["web3", "eth", "net", "parity", "traces", "rpc", "secretstore"]
-hosts = ["none"]
+mkdir private-geth
+cd private-geth
 ```
 
-## Create genesis.json
+Create **genesis.json**
 
-在 chain 目錄下建立創世區塊 genesis.toml
 ```
+vi genesis.json
 {
-    "name": "parity-chain",
-    "engine": {
-        "authorityRound": {
-            "params": {
-                "stepDuration": "3",
-                "validators" : {
-                    "list": []
-                }
-            }
-        }
+  "config": {
+        "chainId": 1,
+        "homesteadBlock": 0,
+        "eip155Block": 0,
+        "eip158Block": 0
     },
-    "params": {
-        "gasLimitBoundDivisor": "0x400",
-        "maximumExtraDataSize": "0x20",
-        "minGasLimit": "0x5208",
-        "networkID" : "0x1"
-    },
-    "genesis": {
-        "seal": {
-            "authorityRound": {
-                "step": "0x0",
-                "signature": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-            }
-        },
-        "difficulty": "0x20000",
-        "gasLimit": "0x5B8D80"
-    },
-    "accounts": {
-    }
+    "coinbase" : "0x0000000000000000000000000000000000000000",
+    "difficulty" : "0x40000",
+    "extraData" : "",
+    "gasLimit" : "0xffffffff",
+    "nonce" : "0x0000000000000042",
+    "mixhash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "timestamp" : "0x00",
+    "alloc": { }
 }
 ```
 
-## Create new account
-
-建立一個新的用戶
+Create a folder for save blockchain data
 ```
-parity account new --chain /home/ubuntu/.local/share/io.parity.ethereum/genesis.json --keys-path /home/ubuntu/.local/share/io.parity.ethereum/keys
+mkdir data
 ```
 
-會請你輸入該用戶的密碼
+Our folder like this
 ```
-Loading config file from /home/ubuntu/.local/share/io.parity.ethereum/config.toml
-Please note that password is NOT RECOVERABLE.
-Type password: asdf1234
-Repeat password: asdf1234
-0x511a4b0153f0fdf1ca90c9544152313237a83255
+private-geth
+    |- genesis.json
+    |- data
 ```
 
-## Create password file
-
-在 chain 目錄下建立密碼檔 .pw
+Excute init cmd in **private-geth** folder.
 ```
-echo asdf1234 >> .pw
+geth --datadir data init genesis.json
 ```
 
-## Update config.toml & genesis.json
-
-Update config.toml
+After init blockchain will see **geth** and **keysotre** folder in private-geth folder. **geth** is save blockchain data and **keysotre** is save account keystore.
 ```
-[parity]
-chain = "/home/ubuntu/.local/share/io.parity.ethereum/genesis.json" 
-base_path = "$HOME/.local/share/io.parity.ethereum"              
-db_path = "$HOME/.local/share/io.parity.ethereum/chains"         
-keys_path = "$HOME/.local/share/io.parity.ethereum/keys"
-
-[network]
-port = 30303
-
-[mining]
-author = "0x511a4b0153f0fdf1ca90c9544152313237a83255"
-engine_signer = "0x511a4b0153f0fdf1ca90c9544152313237a83255"
-
-[account]
-unlock = ["0x511a4b0153f0fdf1ca90c9544152313237a83255"]
-password = ["$HOME/.local/share/io.parity.ethereum/.pw"]
-keys_iterations = 10240
-
-[rpc]
-disable = false
-port = 8545
-interface = "0.0.0.0"
-cors = ["all"]
-apis = ["web3", "eth", "pubsub", "net", "parity", "parity_pubsub", "traces", "rpc", "shh", "shh_pubsub"]
-hosts = ["none"]
-
-[websockets]
-disable = false
-port = 8546
-interface = "0.0.0.0"
-origins = ["none"]
-apis = ["web3", "eth", "net", "parity", "traces", "rpc", "secretstore"]
-hosts = ["none"]
+private-geth
+    |- genesis.json
+    |- data
+        |- geth
+        |- keystore
 ```
 
-Update genesis.json
+Start blockchain and add console parameter let we can use cmd.
 ```
-{
-    "name": "parity-chain",
-    "engine": {
-        "authorityRound": {
-            "params": {
-                "stepDuration": "3",
-                "validators" : {
-                    "list": ["0x511a4b0153f0fdf1ca90c9544152313237a83255"]
-                }
-            }
-        }
-    },
-    "params": {
-        "gasLimitBoundDivisor": "0x400",
-        "maximumExtraDataSize": "0x20",
-        "minGasLimit": "0x5208",
-        "networkID" : "0x1"
-    },
-    "genesis": {
-        "seal": {
-            "authorityRound": {
-                "step": "0x0",
-                "signature": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-            }
-        },
-        "difficulty": "0x20000",
-        "gasLimit": "0x5B8D80"
-    },
-    "accounts": {
-    }
-}
+geth --datadir data/ console
 ```
 
-## Start Mining
+## Start mining
+
+We have to use geth cmd to create an account and call him to start mining.
 
 ```
-parity --config config.toml
+> personal.newAccount("123456")
+"0x428f11af39cd9b97dde1f26e3f23ceba6bc1ee30" 
+> miner.setEtherbase("0x428f11af39cd9b97dde1f26e3f23ceba6bc1ee30")
+true
+> miner.start()
+INFO [07-11|11:20:33.089] Updated mining threads                   threads=0
+INFO [07-11|11:20:33.089] Transaction pool price threshold updated price=18000000000
+INFO [07-11|11:20:33.090] Starting mining operation
+null
+> INFO [07-11|11:20:33.090] Commit new mining work                   number=186 txs=0 uncles=0 elapsed=590.209µs
+INFO [07-11|11:20:35.959] Successfully sealed new block            number=186 hash=170289…cf78e5
+INFO [07-11|11:20:35.960] 🔨 mined potential block                  number=186 hash=170289…cf78e5
+INFO [07-11|11:20:35.960] Commit new mining work                   number=187 txs=0 uncles=0 elapsed=175.419µs
+INFO [07-11|11:20:36.401] Successfully sealed new block            number=187 hash=026631…b04d21
+INFO [07-11|11:20:36.402] 🔨 mined potential block                  number=187 hash=026631…b04d21
+INFO [07-11|11:20:36.403] Commit new mining work                   number=188 txs=0 uncles=0 elapsed=175.379µs
+INFO [07-11|11:20:36.855] Successfully sealed new block            number=188 hash=2d3559…2c5f58
+```
+
+## Run in backgroud
+
+We create a shell script named **startup-geth.sh** to run blockchain in backgroud and add other parameter.
+```
+#!/bin/bash
+screen -dmS geth /usr/bin/geth \
+        --datadir data/ \
+        --mine \
+        --rpc \
+        --rpcaddr "0.0.0.0" \
+        --rpcport "8545" \
+        --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" \
+        --rpccorsdomain "*" \
+```
+
+Run **startup-geth.sh**
+```
+sh startup-geth.sh
+```
+
+Use attach to connect console to check blockchain is being run.
+```
+geth attach ipc:data/geth.ipc
+```
+
+geth console to check blockNumber is being more.
+```
+> eth.blockNumber
+1169
+> eth.blockNumber
+1170
+```
+
+use json-rpc to call blockchain
+```
+curl -d '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":73}' -H "Content-Type: application/json" -X POST http://localhost:8545
+
+{"jsonrpc":"2.0","id":73,"result":["0x3bf7731993923549274d9a2b37f570c5b3bdede1","0x428f11af39cd9b97dde1f26e3f23ceba6bc1ee30"]}
 ```
