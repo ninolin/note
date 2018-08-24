@@ -6,6 +6,17 @@
 brew cask install docker
 ```
 
+## Install docker on ubuntu16.04
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+apt-cache policy docker-ce
+sudo apt-get install -y docker-ce
+sudo systemctl status docker
+```
+
 ## Find docker image, pull, and remove run and list 
 
 We can find docker on open registry like DockerHub(https://hub.docker.com) or use cli
