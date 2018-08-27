@@ -1,0 +1,33 @@
+[parity]
+chain = "/root/.local/share/io.parity.ethereum/genesis.json"
+base_path = "$HOME/.local/share/io.parity.ethereum"
+db_path = "$HOME/.local/share/io.parity.ethereum/chains"
+keys_path = "$HOME/.local/share/io.parity.ethereum/keys"
+
+[network]
+port = 30303
+
+[rpc]
+disable = false
+port = 8545
+interface = "0.0.0.0"
+cors = ["all"]
+apis = ["web3", "eth", "pubsub", "net", "parity", "parity_pubsub", "traces", "rpc", "shh", "shh_pubsub"]
+hosts = ["none"]
+
+[websockets]
+disable = false
+port = 8546
+interface = "0.0.0.0"
+origins = ["none"]
+apis = ["web3", "eth", "net", "parity", "traces", "rpc", "secretstore"]
+hosts = ["none"]
+
+[mining]
+author = "0x5210B93Ad0083f594d8c1e01f13e8fB45f9198bC"
+engine_signer = "0x5210B93Ad0083f594d8c1e01f13e8fB45f9198bC"
+
+[account]
+unlock = ["0x5210B93Ad0083f594d8c1e01f13e8fB45f9198bC"]
+password = ["$HOME/.local/share/io.parity.ethereum/.pw"]
+keys_iterations = 10240
