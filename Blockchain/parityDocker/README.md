@@ -1,6 +1,6 @@
 # 建立一個 parity 的 docker
 
-開一個目錄來放設定檔，把Dockerfile、config.toml、genesis.json放進來
+開一個目錄來放設定檔，把 Dockerfile、config.toml、genesis.json 放進來
 ```
 mkdir ~/parity
 cd ~/parity
