@@ -1,4 +1,4 @@
-# Install private blockchain on Ubuntu 16.04 with Geth
+# Install POW private chain on Ubuntu 16.04 with Geth
 
 ## Install Geth
 
