@@ -123,6 +123,6 @@ geth --datadir data init nino_chain.json
 ## Run
 
 ```
-geth --datadir data --networkid 34567 --unlock 4d93c3d4e0f89b8461471b67d568c6d1e334ac05 --mine --rpc --rpcport 8545 --rpcapi "web3, eth, admin, personal" --rpcaddr "0.0.0.0" --password <(echo asdf1234) console
+geth --datadir ./data --networkid 34567 --unlock ae95875406cf4df8e8645163fe7ef43fbd421b64 --mine --rpc --rpcport 8545 --rpcapi "net,web3, eth, admin, personal" --rpcaddr "0.0.0.0" --password <(echo asdf1234) --rpccorsdomain "*" --nat "any" --identity "230" console
 ```
 
