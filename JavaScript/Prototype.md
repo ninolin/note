@@ -13,4 +13,4 @@ Person.prototype.log = function() {
     console.log(this.name + this.age);
 }
 ```
-![Person.prototype](/javaScript/images/Person.prototype.png)
+![Person.prototype](https://github.com/ninolin/note/blob/master/JavaScript/images/Person.prototype.png)
