@@ -1,4 +1,4 @@
-# JS的原型鏈
+# JS的原型鏈
 
 JS在設計時每一個變數都是Object，可以透過new的方式建立一個instance，該instance就會繼承Object的function，這就是透過原型鏈來實作「繼承」
 
