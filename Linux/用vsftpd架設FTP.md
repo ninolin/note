@@ -1,11 +1,11 @@
 # 在ubuntu16.04上用vsftpd架設ftp
 
-##安裝vsftpd
+## 安裝vsftpd
 ```
 sudo apt-get install vsftpd libpam-pwdfile 
 ```
 
-##修改vsftpd設定檔
+## 修改vsftpd設定檔
 ```
 vi /etc/vsftpd.conf
 ```
@@ -24,7 +24,7 @@ userlist_file=/etc/vsftpd.user_list
 
 ```
 
-##利用sh產生ftp的用戶&並softlink到apahce下面
+## 利用sh產生ftp的用戶&並softlink到apahce下面
 ```
 sh create_ftp_user.sh user1
 ```
@@ -39,7 +39,7 @@ echo $1 >> /etc/vsftpd.user_list;
 sudo ln -s /home/$1/ /var/www/html/
 ```
 
-##vsftpd設定檔範例
+## vsftpd設定檔範例
 ```
 
 listen=NO
@@ -180,7 +180,7 @@ ssl_enable=NO
 
 ```
 
-##參考文件
+## 參考文件
 ```
 https://www.linuxidc.com/Linux/2017-06/144807.htm
 https://oranwind.org/-ftp-ubuntu-an-zhuang-ftp-yu-she-ding-apache-du-qu-quan-xian/
