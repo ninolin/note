@@ -1,21 +1,16 @@
-# 介紹 Prototype
+# JS的原型鏈
 
-JS中每一種型態的變數都有Prototype這個物件，但只有function才會公開Prototype
+JS在設計時每一個變數都是Object，可以透過new的方式建立一個instance，該instance就會繼承Object的function，這就是透過原型鏈來實作「繼承」
 
-#### 一個車子的function和把行為物件綁上去
+#### 建立一個Person的function
 
 ```
-function car(b, w) {
-    this.brand = b;
-    this.wheels = w;
+function Person(n, a) {
+    this.name = n;
+    this.age = a;
 }
-
-var transportation = {
-    goAhead : function() {
-        console.log(this.brand + '在前進')
-    },
-    backWard: function() {
-        console.log(this.brand + '在退後')
-    }
+Person.prototype.log = function() {
+    console.log(this.name + this.age);
 }
 ```
+![Person.prototype](https://github.com/ninolin/note/blob/master/JavaScript/images/Person.prototype.png)
