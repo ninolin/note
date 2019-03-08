@@ -8,7 +8,7 @@ sudo apt-get install mysql-client
 
 ## 安裝 ProxySQL
 
-先在tmp資料夾載下ProxySQL的deb檔再安裝，最新的ProxySQL在這https://github.com/sysown/proxysql/releases
+先在tmp資料夾下載ProxySQL的deb檔再安裝，最新的ProxySQL在這https://github.com/sysown/proxysql/releases
 ```
 cd /tmp
 curl -OL https://github.com/sysown/proxysql/releases/download/v2.0.2/proxysql_2.0.2-ubuntu16_amd64.deb
@@ -22,10 +22,7 @@ systemctl status proxysql
 用mysql客户端連接ProxySQL的管理接口，並把Percona的結點IP寫入
 ```
 mysql -uadmin -padmin -h127.0.0.1 -P6032 --prompt 'admin> '
-insert into mysql_servers(hostgroup_id,hostname,port) values
-(10,'10.40.1.199',3306),
-(10,'10.40.1.202',3306),
-(10,'10.40.1.203',3306);
+insert into mysql_servers(hostgroup_id,hostname,port) values (10,'10.40.1.199',3306),(10,'10.40.1.202',3306),(10,'10.40.1.203',3306);
 load mysql servers to runtime;
 save mysql servers to disk;
 ```
@@ -49,7 +46,7 @@ grant all on *.* to root@'10.40.1.%';
 
 在ProxySQL的設定供ProxySQL連結Percona的用戶
 ```
-insert into mysql_users(username,password,default_hostgroup,transaction_persistent) values ('root', 'P@ssword1!', 10, 1);
+insert into mysql_users(username,password,default_hostgroup,transaction_persistent)values ('root', 'P@ssword1!', 10, 1);
 load mysql users to runtime;
 save mysql users to disk;
 ```
