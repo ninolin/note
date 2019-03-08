@@ -10,7 +10,7 @@ DB3       | 61.66.218.203   |  172.16.0.181
 proxySQL  | 61.66.218.187   |  172.16.0.182
 
 ## 前置作業
-每1台要安裝Percnoa XtraDB Cluster都要開3306,4444,4567,4568
+每1台要安裝Percnoa XtraDB Cluster都要開3306,4444,4567,4568,22(22要開才能ssh)
 ```
 ufw allow 3306/tcp
 ufw allow 4444/tcp
