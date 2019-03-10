@@ -54,3 +54,7 @@ save mysql users to disk;
 ```
 mysql -uroot -pP@ssword1! -h127.0.0.1 -P6033 -e "SELECT * FROM testDB.testTable;"
 ```
+檢查是否每次都是不同節點
+```
+mysql -uroot -pi1taiwan -h127.0.0.1 -P6033 -e "show variables like 'wsrep_node_name';"
+```
