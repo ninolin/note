@@ -35,6 +35,8 @@ service mysql status
 
 修改DB1的/etc/mysql/my.cnf
 ```
+[mysqld]
+
 wsrep_provider=/usr/lib/libgalera_smm.so
 
 wsrep_cluster_name=pxc-cluster
