@@ -37,6 +37,7 @@ auto-increment-offset = 2             |  有用auto_increment時，每次加2(�
 expire_logs_days = 10                 |  log保留10天
 
 若有2台db想要auto_increment不衝突時，可以這樣設
+
 DB1                             |  DB2
 --------------------------------|--------------------------------------
 auto-increment-offset = 1       |   auto-increment-offset = 2
