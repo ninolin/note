@@ -284,6 +284,7 @@ mysql> SHOW DATABASES;
 ```
 
 ##預到問題
+
 * 錯誤訊息1: 
 ```
 error connecting to master，- retry-time: 60 retries: 86400
