@@ -247,7 +247,7 @@ Master_SSL_Verify_Server_Cert: No
 1 row in set (0.00 sec)
 ```
 
-#測試同步
+##測試同步
 
 DB1
 ```
@@ -283,13 +283,14 @@ mysql> SHOW DATABASES;
 6 rows in set (0.00 sec)
 ```
 
-#預到問題
+##預到問題
+* 錯誤訊息1: 
 ```
 error connecting to master，- retry-time: 60 retries: 86400
 ```
 設定同步後若發現2個db在連接有問題，可能是mysql的bind-address預設只讓本地端連造成的，修改 /etc/mysql/mysql.conf.d，把bind-address註解掉
 
-
+* 錯誤訊息2: 
 ```
 Slave I/O: Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs; these UUIDs must be different for replication to work. Error_code: 1593
 ```
