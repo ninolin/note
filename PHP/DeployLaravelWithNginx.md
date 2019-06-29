@@ -7,8 +7,8 @@
 ```
 sudo apt-add-repository ppa:ondrej/php
 sudo apt-get update
-sudo apt-get -y install php7.2 php7.2-mysql php7.2-fpm php7.2-mbstring php7.2-xml php7.2-curl zip unzip php7.2-zip php-memcached
-echo ‘cgi.fix_pathinfo=0’ >> /etc/php/7.2/fpm/php.ini
+sudo apt-get install php7.2 php7.2-mysql php7.2-fpm php7.2-mbstring php7.2-xml php7.2-curl zip unzip php7.2-zip php-memcached
+sudo echo ‘cgi.fix_pathinfo=0’ >> /etc/php/7.2/fpm/php.ini
 ```
 ### 安裝 composer
 ```
@@ -59,7 +59,15 @@ server {
     }
 }
 ```
-重新執行nginx後就可以在網址上看到了
+重啟nginx
 ```
 service nginx restart
+```
+
+### 設定 Laravel
+更新composer & 打開laravel storage & bootstrap/cache 的權限
+```
+cd ~/quickstart
+sudo composer update
+chmod 777 -R storage bootstrap/cache
 ```
