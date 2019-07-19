@@ -28,7 +28,7 @@ CMD npm start
 
 use dockerfile to build new image
 ```
-docker built -t [new image name:tag] [Dockerfile path]
+docker build -t [new image name:tag] [Dockerfile path]
 docker build -t helloworld .
 ```
 
