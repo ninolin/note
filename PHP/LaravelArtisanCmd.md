@@ -1,12 +1,12 @@
 # 在 Laravel 中自訂 Artisan 指令列
 
-在使用Laravel(5.7版)開發時，可以用Artisan指令來開發一些指令
+在使用Laravel(5.7版)開發時，若想要自行開發指令的話可以用Artisan自訂
 
-可以使用下列指令來列出目前全部可以用的Artisan指令
+列出目前全部可以用的Artisan指令
 ```
 php artisan list
 ```
-可以使用下列指令來列出指定的Artisan指令說明
+列出指定的Artisan指令說明
 ```
 php artisan help route:clear
 ```
