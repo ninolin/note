@@ -1,4 +1,4 @@
-# JS TypedArray 使用介紹
+# TypedArray 使用介紹
 
 TypedArray是JS在處理二進位檔(Binary Data)時會使用到資料型態，主要分為Buffer和View
 
