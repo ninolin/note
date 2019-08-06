@@ -36,10 +36,12 @@ for (var i = 0; i < int16View.length; i++) {
   int16View[i] = i*100;
 }
 console.log(int16View);                 //Int16Array(4) [0, 100, 200, 300, 400, 500, 600, 700]
+
 var int8View = new Int8Array(buffer);   //用一個chunk大小為8bits(1Bytes)的TypedArray來操作
 console.log(int8View);                  //int8Array(8) [0, 0, 100, 0, -56, 0, 44, 1, -112, 1, -12, 1, 88, 2, -68, 2]
-var int32View = new Int32Array(buffer); //Int32Array(4) [6553600, 19661000, 32768400, 45875800]
 
+var int32View = new Int32Array(buffer); //用一個chunk大小為32bits(1Bytes)的TypedArray來操作
+console.log(int32View);                 //Int32Array(4) [6553600, 19661000, 32768400, 45875800]
 ```
 在有資料的ArrayBuffer中用不同的TypedArray可能會產生溢位等情況，例如chunk大小為16bits的話，就可以放2^16大的值，但chunk大小為8bits的話，就會有有放不下，需注意
 
@@ -53,6 +55,7 @@ var buffer = new ArrayBuffer(4);        //產生一個長度為4Bytes的二進�
 const dv = new DataView(buffer);        //產生一個DataView來操作buffer
 dv.setInt8(3, 100);                     //在第3個bytes的地方放一個值
 dv.getInt8(3);                          //100
+
 var int8View = new Int8Array(buffer);
 console.log(int8View);                  //Int8Array(4) [0, 0, 0, 100]
 ```
