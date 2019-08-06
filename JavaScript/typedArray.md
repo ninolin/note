@@ -2,12 +2,8 @@
 
 TypedArray是JS在處理二進位檔(Binary Data)時會使用到資料型態，主要分為Buffer和View
 
--           | Buffer          | View 
-------------|:---------------:|---------------
-說明         | 一段固定大小的二進位資料，需用View操作 | 用來操作Buffer 
-ArrayBuffer | ✓               |
-TypedArray  |                 | ✓
-DataView    |                 | ✓
+* Buffer: 一段固定大小的二進位資料，需用View操作(ArrayBuffer)
+* View: 用來操作Buffer(TypedArray、DataView)
 
 ## ArrayBuffer
 
