@@ -65,6 +65,11 @@ service nginx restart
 ```
 
 ### 設定 Laravel
+出現 No application encryption key has been specified. 產生一個新的key
+```
+php artisan key:generate
+```
+
 更新composer & 打開laravel storage & bootstrap/cache 的權限
 ```
 cd ~/quickstart
