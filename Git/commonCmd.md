@@ -1,6 +1,15 @@
 # 自己常用的Git Command
 
-## 分支-Branch
+## 檔案CRUD
+
+```
+刪除檔案
+git rm <FILE_NAME>
+git add -u
+git commit -m "commit message"
+```
+
+## Branch
 
 ```
 建立本地分支
