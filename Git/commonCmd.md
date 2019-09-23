@@ -13,8 +13,6 @@ git push                            上傳
 ## Branch
 
 ```
-
 git checkout -b <BRANCH_NAME>       建立本地分支
-
 git push -u origin <BRANCH_NAME>    分支上傳遠端
 ```
