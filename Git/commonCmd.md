@@ -5,8 +5,12 @@
 ```
 刪除檔案
 git rm <FILE_NAME>
+
+加入所有被更動的檔案(modified and deleted)
 git add -u
+提交上傳
 git commit -m "commit message"
+git push
 ```
 
 ## Branch
