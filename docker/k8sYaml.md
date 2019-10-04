@@ -22,7 +22,7 @@ spec:                       <=== 規格描述
 apiVersion: extensions/v1beta1  <=== 指定 api 版本的
 kind: Deployment                <=== 指定類型為 Deployment
 metadata:
-  name: web-deployment          <=== 將 Deployment 命名為 web-deployment
+  name: web-deployment          <=== 將 Deployment 命名為 web-deployment
   labels:
     app: web-app                <=== 加入 app: web-app 的標記
 spec:
@@ -49,7 +49,7 @@ spec:
 apiVersion: v1                  <=== 指定 api 版本的
 kind: Service                   <=== 指定類型為 Service
 metadata:
-  name: web-service             <=== 將 Deployment 命名為 web-service
+  name: web-service             <=== 將 Deployment 命名為 web-service
 spec:
   ports:
     - protocol: TCP
