@@ -21,16 +21,22 @@ You should consider upgrading via the 'pip install --upgrade pip' command.
 
 ## 在專案下建立虛擬環境
 
+### 專案下建立虛擬環境-方法1
+
 因為想在專案中執行3版的python，使用which python3找到python3的路徑
 ```
 TW-NinoLin:note nino_lin$ which python3
 /Library/Frameworks/Python.framework/Versions/3.7/bin/python3
+
+TW-NinoLin:virtualenv -p <PYTHON3_FOLDER> <PROJECT_FOLDER>
+TW-NinoLin:virtualenv -p /Library/Frameworks/Python.framework/Versions/3.7/bin/python3 zion-ip-backend/
 ```
 
-專案下建立虛擬環境
+### 專案下建立虛擬環境-方法2
+
+在專案目前下建立虛擬環境
 ```
-virtualenv -p <PYTHON3_FOLDER> <PROJECT_FOLDER>
-virtualenv -p /Library/Frameworks/Python.framework/Versions/3.7/bin/python3 zion-ip-backend/
+virtualenv venv --python=python3.7
 ```
 
 在專案目錄下執行指令啟動虛擬環境中
