@@ -39,6 +39,7 @@ dcardhw-7b85b95966-sck52   1/1       Running   0          23h
 $ kubectl describe pods <POD NAME> --namespace=<NAMESPACE NAME>         //查看pod的詳細資料
 $ kubectl describe pods dcardhw-7b85b95966-sck52 --namespace=default    //POD NAME新建或重啟會不一樣
 $ kubectl delete pods <POD NAME> --namespace=<NAMESPACE NAME>           //刪除pod
+$ kubectl logs <POD NAME> --namespace=<NAMESPACE NAME>                  //查看pod logs
 ```
 
 ### services
@@ -50,4 +51,13 @@ dcardhw-service   LoadBalancer   10.12.7.16   35.232.227.198   80:30350/TCP   23
 kubernetes        ClusterIP      10.12.0.1    <none>           443/TCP        23h
 
 $ kubectl delete services <SERVICE NAME> --namespace=<NAMESPACE NAME>   //刪除service
+```
+
+### 常用指令
+
+#### export
+```
+$ kubectl get deployment <DEPLOYMENT NAME> -o yaml --export -n=<NAMESPACE NAME>
+$ kubectl get service <SERVICE NAME> -o yaml --export -n=<NAMESPACE NAME>
+$ kubectl get pod <POD NAME> -o yaml --export -n=<NAMESPACE NAME>
 ```
