@@ -5,10 +5,11 @@
 kubeconfig 用來紀錄與 k8s cluster 的連線資訊，一般來說文件路徑為 ~/.kube/config
 
 ```
-$ kubectl config view                       //查看kubeconfig配置
-$ kubectl config get-contexts               //查詢有那些cluster
-$ kubectl config use-context <CLUSTER NAME> //切換連線的cluster
-$ kubectl config current-context            //目前連線的cluster
+$ kubectl config view                           //查看kubeconfig配置
+$ kubectl config get-contexts                   //查詢有那些cluster
+$ kubectl config use-context <CLUSTER NAME>     //切換連線的cluster
+$ kubectl config current-context                //目前連線的cluster
+$ kubectl config delete-context <CLUSTER NAME>  //刪掉指定的cluster
 ```
 
 ## 資源管理
@@ -40,6 +41,7 @@ $ kubectl describe pods <POD NAME> --namespace=<NAMESPACE NAME>         //查看
 $ kubectl describe pods dcardhw-7b85b95966-sck52 --namespace=default    //POD NAME新建或重啟會不一樣
 $ kubectl delete pods <POD NAME> --namespace=<NAMESPACE NAME>           //刪除pod
 $ kubectl logs <POD NAME> --namespace=<NAMESPACE NAME>                  //查看pod logs
+$ kubectl exec -ti <POD NAME> /bin/bash -n=<NAMESPACE NAME>             //進入pod
 ```
 
 ### services
