@@ -26,10 +26,11 @@ $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools
 ```shell
 # 下載 zsh-autosuggestions
 $ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-or
+# 或
 $ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
 # 打開設定檔
 $ open ~/.zshrc
 # 在.zshrc檔當中找到 plugins=(git) -> 改為 plugins=(zsh-autosuggestions)
-# 重啟 terminal
+# 重開 terminal
 ```
