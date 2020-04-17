@@ -30,7 +30,6 @@ or
 $ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 # 打開設定檔
 $ open ~/.zshrc
-# 在.zshrc檔當中找到 plugins=(git) 
--> 改為 plugins=(zsh-autosuggestions)
+# 在.zshrc檔當中找到 plugins=(git) -> 改為 plugins=(zsh-autosuggestions)
 # 重啟 terminal
 ```
