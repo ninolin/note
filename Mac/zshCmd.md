@@ -18,12 +18,12 @@ $ echo $SHELL
 ```
 
 ### 安裝 oh-my-zsh
-```
+```shell
 $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
 ### 外掛 Auto Suggestions (for oh my zsh)
-```
+```shell
 # 下載 zsh-autosuggestions
 $ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 or
