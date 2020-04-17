@@ -7,7 +7,7 @@
 變更的操作位置在 Preferences > Profiles > Terminal > Report Terminal Type
 
 ## 安裝 zsh
-```console
+```shell
 # 安裝
 $ brew install zsh
 $ sudo sh -c "echo $(which zsh) >> /etc/shells"
