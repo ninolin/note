@@ -2,7 +2,7 @@
 
 ## False
 
-```
+```python
 false_values = [
     False, [], {}, '', 0, 0.0, None
 ]
@@ -12,7 +12,7 @@ for value in false_values:
 
 ## 注意使用None
 
-```
+```python
 def test_connection():
     return True
 

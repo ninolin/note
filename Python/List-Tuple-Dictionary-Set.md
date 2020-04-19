@@ -5,7 +5,7 @@
 儲存有順序的資料，由[]包起來，組成元素由逗號隔開
 
 ### 建立List
-```
+```python
 list1 = []
 list2 = list()
 list3 = ['chinese', 'english']
@@ -13,7 +13,7 @@ list4 = list('hello')           # ['h', 'e', 'l', 'l', 'o']
 ```
 
 ### 操作List
-```
+```python
 list1 = ['chinese', 'english', 'japanese']
 list1[0]    #chinese
 list1[1]    #english
@@ -21,7 +21,7 @@ list1[-1]   #japanese, -1從結尾回來
 ```
 
 ### List解析
-```
+```python
 a = [1,2,3,4,5,6,7]  # 求偶數
 
 b = []
@@ -40,14 +40,14 @@ key-value 的資料
 
 ### 建立Dictionary
 
-```
+```python
 dic1 = {'A':'Apple', 'B':'Banana'}
 dic2 = dict({'A':'Apple', 'B':'Banana'})
 ```
 
 ### 操作Dictionary
 
-```
+```python
 dic = {'A':'Apple', 'B':'Banana'}
 dic['C'] = 'Cherry'  # 新增
 dic['C'] = 'Coconut' # 修改
@@ -58,27 +58,27 @@ dic.items()          # 全部的key-value
 ```
 
 ### List轉換成Dictionary
-```
+```python
 a = [1,2,3,4,5,6,7]
 # {1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6'}
 print({item:str(item) for item in a})
 ```
 
 ### Dictionary合併
-```
+```python
 dicA = {'A':'Apple', 'B':'Banana'}
 dicB = {'C': 'Cherry'}
 {**dicA, **dicB}
 ```
 
 ### 安全取用Dictionary
-```
+```python
 d = {'A':'Apple', 'B':'Banana'}
 d['C']  # 存取不存在的key會發生錯誤
 ```
 
 #### 一般做法用 try-except 或 先判斷
-```
+```python
 try:
     d['C']
 except Exception as e:
@@ -89,7 +89,7 @@ if 'C' in d:
 ```
 
 #### 用 get 或 defaultdict
-```
+```python
 d.get('C') # None
 d.get('C', 'unknow') # unknow
 
@@ -106,7 +106,7 @@ d_new['C']  # unknow
 
 建立空的集合，不能用{}，{}是Dictionary
 
-```
+```python
 s1 = set() #
 s2 = {1, 2, 3, 4}
 ```
@@ -114,7 +114,7 @@ s2 = {1, 2, 3, 4}
 
 新增: add / 刪除: remove
 
-```
+```python
 s2 = {1, 2, 3, 4}
 s2.add(5)
 s2.remove(1)
@@ -123,7 +123,7 @@ s2.remove(1)
 常用functoin: len(), sum(), max(), min()
 
 交集(&), 連集(|), 差集(-), 反交集(^)
-```
+```python
 s1 = {3, 4, 5}
 s2 = {4, 5, 6, 7}
 s1&s2 # {4, 5}
@@ -134,7 +134,7 @@ s1^s2 # {3, 6, 7}
 ```
 
 可以用來判斷字是否在字串中
-```
+```python
 s1 = set("Hello")
 print(s1) # {'l', 'H', 'e', 'o'}
 print('e' in s1) # True
