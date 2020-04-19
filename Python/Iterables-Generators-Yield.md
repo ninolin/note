@@ -34,7 +34,7 @@ for j in g:
 
 生成器的使用時機會當你需要產生一個很大的List或是不知道可能會多大的List時(檔案目錄)，可能會擔心記憶體不足，就可以使用Generators
 
-```
+```python
 def big_range(i):
     s = 0
     while s<=i:
@@ -47,7 +47,8 @@ for i in b:
 ```
 
 使用遞迴取得檔案目錄
-```
+
+```python
 import os
 
 path = '~/'
